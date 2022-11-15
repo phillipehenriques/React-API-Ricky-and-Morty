@@ -1,14 +1,14 @@
-import React from "react";
 import styled from "styled-components"
 
-const EstiloDaNavbar = styled.div`
+export const EstiloDaNavbar = styled.div`
   display: flex;
   flex-direction: row;
-  border: 1px solid ${({ theme }) => theme.borderBase};
-  max-width: 425px;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
   width: 100%;
-  border-radius: 2px;
-  overflow: hidden;
+  height: 12vh;
   
   input {
     width: 80%;
@@ -33,20 +33,3 @@ const EstiloDaNavbar = styled.div`
     }
   }
 `;
-
-export default function Navbar () {
-
-  const valorDoFiltro = valordaBusca;
-  const setValorDoFiltro = setvalorDaBusca;
-
-  return (
-      <Navbar>
-          <input type="text" onChange={(e) => 
-              setvalorDaBusca(e.target.value)
-          } value={valordaBusca}/>
-          <button>
-              🔎
-          </button>
-      </Navbar>
-  )
-}

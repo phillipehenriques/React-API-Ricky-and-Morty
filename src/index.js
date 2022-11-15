@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import styled from "styled-components";
 import { CSSReset } from "./CSSReset";
 import { EstiloDaNavbar } from "./style/EstiloDaNavbar";
 
@@ -26,25 +27,25 @@ function HomePage() {
 
     // funções <<
 
-  const StyledHeader = styled.div` //o que é isso e porque isso está aqui Csorgo? <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-  .userInfo {
-      margin-top: 56px;
-      margin-bottom: 20px;
-      color: white;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: start;
-      width: 100%;
-      padding: 16px 32px;
-      gap: 16px;
+  const StyledHeader = styled.div` // o que é isso e porque isso está aqui Csorgo? <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  .barra {
+    display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 12vh;
   }
 `;
   
 function Navbar() {
   return (
       <EstiloDaNavbar>
-
+        <div className="barra">
+          Alguma coisa aqui!
+        </div>
       </EstiloDaNavbar>
   )
 }
