@@ -1,25 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import reportWebVitals from './reportWebVitals';
+import styled from "styled-components";
+import { CSSReset } from "./CSSReset";
+import { EstiloDaNavbar } from "./style/EstiloDaNavbar";
 
-function App() {
+function HomePage() {
+  const mensagem = "";
+  const estilosDaHomePage = {backgroundColor: "blue", width: "100%"};
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+      <CSSReset />
+      <div style={estilosDaHomePage}>
+          <Navbar/>
+          <Container />
+          <Bottom />
+      </div>
+      </>
   );
 }
 
-export default App;
+ export default HomePage;
+
+    // funções <<
+
+  const StyledHeader = styled.div` // o que é isso e porque isso está aqui Csorgo? <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  .barra {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 12vh;
+  }
+`;
+  
+function Navbar() {
+  return (
+      <EstiloDaNavbar>
+        <div className="barra">
+          Alguma coisa aqui!
+        </div>
+      </EstiloDaNavbar>
+  )
+}
+
+function Container() {
+  return (
+      <Container>
+      
+      </Container>
+  )
+}
+
+function Bottom() {
+  return (
+      <Bottom>
+      
+      </Bottom>
+  )
+}
+
+// fim

@@ -1,69 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import styled from "styled-components";
-import { CSSReset } from "./CSSReset";
-import { EstiloDaNavbar } from "./style/EstiloDaNavbar";
+import HomePage from './App';
 
-function HomePage() {
-  const mensagem = "";
-  const estilosDaHomePage = {backgroundColor: "blue", width: "100%"};
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <HomePage />
+  </React.StrictMode>
+);
 
-  return (
-      <>
-      <CSSReset />
-      <div style={estilosDaHomePage}>
-          <Navbar/>
-          <Container />
-          <Bottom />
-      </div>
-      </>
-  );
-}
-
- export default HomePage;
-
-    // funções <<
-
-  const StyledHeader = styled.div` // o que é isso e porque isso está aqui Csorgo? <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-  .barra {
-    display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-color: black;
-  color: white;
-  width: 100%;
-  height: 12vh;
-  }
-`;
-  
-function Navbar() {
-  return (
-      <EstiloDaNavbar>
-        <div className="barra">
-          Alguma coisa aqui!
-        </div>
-      </EstiloDaNavbar>
-  )
-}
-
-function Container() {
-  return (
-      <Container>
-      
-      </Container>
-  )
-}
-
-function Bottom() {
-  return (
-      <Bottom>
-      
-      </Bottom>
-  )
-}
-
-// fim
