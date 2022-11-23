@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
+import navlogo from "./img/nav-logo.png";
+import Rick from "./img/rick.jpg"
 
 function HomePage() {
   return (
@@ -25,7 +27,12 @@ const StyledNav = styled.div`
         background-color: black;
         color: white;
         width: 100%;
-        height: 12vh;
+        height: 10vh;
+      };
+
+      .imgNav {
+        width: 200px;
+        height: 6vh;
       }
 `;
 
@@ -33,7 +40,7 @@ function Navbar() {
   return (
     <StyledNav>
       <div className='barra'>
-        API Rick & Morty!
+      <img className='imgNav' src={navlogo} />
       </div>
     </StyledNav>
   )
@@ -55,8 +62,8 @@ const StyledMiddle = styled.div`
 
   .fotoPersonagem {
     background-color: orange;
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 280px;
   };
 
   .rules {
@@ -65,6 +72,12 @@ const StyledMiddle = styled.div`
     align-items: center;
     justify-content: center;
     gap: 15px;
+  };
+
+  .linhaPersonagem {
+    background-color: white;
+    width: 300px;
+    height: 30px;
   }
 
 `;
@@ -74,11 +87,9 @@ function Middle() {
     <StyledMiddle>
       <div className='middleRules'>
         <div className='rules'>
-          <div className='fotoPersonagem'>
-            {/* foto */}
-          </div>
+        <img className='fotoPersonagem' src={Rick} />
           <div className='dadosPersonagem'>
-            Nome <div className='linhaPersonagem' id='nomePersonagem'></div>
+            Nome<div className='linhaPersonagem' id='nomePersonagem'></div>
             Espécie<div className='linhaPersonagem' id='especiePersonagem'></div>
             Status<div className='linhaPersonagem' id='statusPersonagem'></div>
             Local<div className='linhaPersonagem' id='localPersonagem'></div>
