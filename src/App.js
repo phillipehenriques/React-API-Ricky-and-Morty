@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
 import navlogo from "./img/nav-logo.png";
-import Rick from "./img/rick.jpg"
+// import Rick from "./img/rick.jpg"
+
+import axios from "axios";
 
 function HomePage() {
   return (
@@ -83,16 +85,24 @@ const StyledMiddle = styled.div`
 `;
 
 function Middle() {
+  const [character, setCharacter] = React.useState({});
+
+  React.useEffect(() => {
+    axios.get("https://rickandmortyapi.com/api/character/1").then((response) => {
+      setCharacter(response.data);
+    });
+  }, []);
+
   return (
     <StyledMiddle>
       <div className='middleRules'>
         <div className='rules'>
-        <img className='fotoPersonagem' src={Rick} />
+        <img className='fotoPersonagem' src={character.image} />
           <div className='dadosPersonagem'>
-            Nome<div className='linhaPersonagem' id='nomePersonagem'></div>
-            Espécie<div className='linhaPersonagem' id='especiePersonagem'></div>
-            Status<div className='linhaPersonagem' id='statusPersonagem'></div>
-            Local<div className='linhaPersonagem' id='localPersonagem'></div>
+            Nome<div className='linhaPersonagem' id='nomePersonagem'>{character.name}</div>
+            Espécie<div className='linhaPersonagem' id='especiePersonagem'>{character.species}</div>
+            Status<div className='linhaPersonagem' id='statusPersonagem'>{character.status}</div>
+            Gênero<div className='linhaPersonagem' id='localPersonagem'>{character.gender}</div>
           </div>
         </div>
         <div>
@@ -103,6 +113,22 @@ function Middle() {
   )
 }
 
+
+function list() {
+  return(<div>
+    foreach(() => {
+      <listItem>
+        
+      </listItem>
+    })
+  </div>)
+}
+
+function listItem(){
+  return (<div>
+    <div></div>
+  </div>)
+}
 
 
 // fim
