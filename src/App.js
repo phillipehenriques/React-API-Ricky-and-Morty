@@ -60,7 +60,7 @@ const StyledMiddle = styled.div`
     gap: 15px;
     width: 80%;
     height: 80vh;
-  };
+  }
 
   .fotoPersonagem {
     background-color: orange;
@@ -113,21 +113,56 @@ function Middle() {
   )
 }
 
+const StyledList = styled.div`
+  .listRules {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: orange;
+    width: 250px;
+    height: 600px;
+  }`;
 
 function list() {
-  return(<div>
-    foreach(() => {
-      <listItem>
-        
-      </listItem>
-    })
-  </div>)
+  
+  return(
+    <StyledList>
+        <ul>
+          forEach(() => {
+            <listItem>
+              item da lista
+            </listItem>
+            })
+
+          <li>
+              <div>{item}</div>
+          </li>
+        </ul>
+    </StyledList>
+  )
 }
 
-function listItem(){
-  return (<div>
-    <div></div>
-  </div>)
+function listItem() {
+  
+  const StyledItem = styled.div`
+  .classe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    width: 200px;
+    height: 30px;
+  }`;
+
+  return (
+    <StyledItem>
+      <div>
+        <div>item da lista</div>
+      </div>
+    </StyledItem>
+  )
 }
 
 
