@@ -129,15 +129,11 @@ function list() {
   return(
     <StyledList>
         <ul>
-          forEach(() => {
+          response.forEach((item) => {
             <listItem>
-              item da lista
+              <li>{item}</li>
             </listItem>
-            })
-
-          <li>
-              <div>{item}</div>
-          </li>
+            })     
         </ul>
     </StyledList>
   )
