@@ -42,7 +42,7 @@ function Navbar() {
   return (
     <StyledNav>
       <div className='barra'>
-      <img className='imgNav' src={navlogo} />
+        <img className='imgNav' src={navlogo} />
       </div>
     </StyledNav>
   )
@@ -97,7 +97,7 @@ function Middle() {
     <StyledMiddle>
       <div className='middleRules'>
         <div className='rules'>
-        <img className='fotoPersonagem' src={character.image} />
+          <img className='fotoPersonagem' src={character.image} />
           <div className='dadosPersonagem'>
             Nome<div className='linhaPersonagem' id='nomePersonagem'>{character.name}</div>
             Espécie<div className='linhaPersonagem' id='especiePersonagem'>{character.species}</div>
@@ -106,7 +106,7 @@ function Middle() {
           </div>
         </div>
         <div>
-          {/* blocos de personagens */}
+          <List/>
         </div>
       </div>
     </StyledMiddle>
@@ -124,22 +124,26 @@ const StyledList = styled.div`
     height: 600px;
   }`;
 
-function list() {
-  
-  return(
-    <StyledList>
-        <ul>
-          response.forEach((item) => {
-            <listItem>
-              <li>{item}</li>
-            </listItem>
-            })     
-        </ul>
-    </StyledList>
+function List() {
+
+  const [listaDePersonagens, setListaDePersonagens] = React.useState([]);
+
+  React.useEffect(() => {
+    axios.get("https://rickandmortyapi.com/api/character").then((response) => {
+        setListaDePersonagens(response.data.results);
+      });
+  }, []);
+
+  return (
+    <ul>
+      {listaDePersonagens.map((element, index) => (
+        <li index={index}>{element.name}</li>
+      ))}
+    </ul>
   )
 }
 
-function listItem() {
+function ListItem(name, index, status) {
   
   const StyledItem = styled.div`
   .classe {
@@ -153,11 +157,9 @@ function listItem() {
   }`;
 
   return (
-    <StyledItem>
-      <div>
-        <div>item da lista</div>
-      </div>
-    </StyledItem>
+    <li id={index}>
+      {name}
+    </li>
   )
 }
 
