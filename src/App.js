@@ -51,7 +51,7 @@ function Navbar() {
 const StyledMiddle = styled.div`
   .middleRules {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     background-color: lightcoral;
@@ -60,7 +60,7 @@ const StyledMiddle = styled.div`
     gap: 15px;
     width: 80%;
     height: 80vh;
-  }
+  };
 
   .fotoPersonagem {
     background-color: orange;
@@ -80,6 +80,14 @@ const StyledMiddle = styled.div`
     background-color: white;
     width: 300px;
     height: 30px;
+  }
+
+  .listClass {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 100px;
   }
 
 `;
@@ -105,13 +113,15 @@ function Middle() {
             Gênero<div className='linhaPersonagem' id='localPersonagem'>{character.gender}</div>
           </div>
         </div>
-        <div>
+        <div className='listClass'>
           <List/>
         </div>
       </div>
     </StyledMiddle>
   )
 }
+
+function List() {
 
 const StyledList = styled.div`
   .listRules {
@@ -120,11 +130,10 @@ const StyledList = styled.div`
     align-items: center;
     justify-content: center;
     background-color: orange;
-    width: 250px;
-    height: 600px;
+    width: 500px;
+    height: 700px;
+    margin: 0px;
   }`;
-
-function List() {
 
   const [listaDePersonagens, setListaDePersonagens] = React.useState([]);
 
@@ -135,31 +144,39 @@ function List() {
   }, []);
 
   return (
-    <ul>
-      {listaDePersonagens.map((element, index) => (
-        <li index={index}>{element.name}</li>
-      ))}
-    </ul>
+    <StyledList>
+      <div className='listRules'>
+        <ul>
+          {listaDePersonagens.map((element, index) => (
+            <li index={index}>{element.name}</li>
+          ))}
+        </ul>
+      </div>
+    </StyledList>
   )
 }
 
 function ListItem(name, index, status) {
   
   const StyledItem = styled.div`
-  .classe {
+  .itemRules {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: green;
+    background-color: red;
     width: 200px;
     height: 30px;
   }`;
 
   return (
-    <li id={index}>
-      {name}
-    </li>
+    <StyledItem>
+      <div className='itemRules'>
+        <li id={index}>
+          {name}
+        </li>
+      </div>
+    </StyledItem>
   )
 }
 
