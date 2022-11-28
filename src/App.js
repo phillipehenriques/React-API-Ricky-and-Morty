@@ -87,7 +87,7 @@ const StyledMiddle = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-left: 100px;
+    margin-left: 130px;
   }
 
 `;
@@ -130,10 +130,22 @@ const StyledList = styled.div`
     align-items: center;
     justify-content: center;
     background-color: orange;
-    width: 500px;
+    width: 260px;
     height: 700px;
     margin: 0px;
-  }`;
+  }
+  
+  .itemRules {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    color: white;
+    width: 295px;
+    height: 30px;
+  }
+  `;
 
   const [listaDePersonagens, setListaDePersonagens] = React.useState([]);
 
@@ -146,9 +158,9 @@ const StyledList = styled.div`
   return (
     <StyledList>
       <div className='listRules'>
-        <ul>
+        <ul className='listRules'>
           {listaDePersonagens.map((element, index) => (
-            <li index={index}>{element.name}</li>
+            <li className='itemRules' index={index}>{element.name}</li>            
           ))}
         </ul>
       </div>
@@ -161,7 +173,7 @@ function ListItem(name, index, status) {
   const StyledItem = styled.div`
   .itemRules {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     background-color: red;
@@ -178,7 +190,7 @@ function ListItem(name, index, status) {
       </div>
     </StyledItem>
   )
-}
+};
 
 
 // fim
